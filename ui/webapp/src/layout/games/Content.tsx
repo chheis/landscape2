@@ -18,7 +18,7 @@ const Content = () => {
   const [error, setError] = createSignal<string | undefined>();
 
   const startGame = async (initiated?: boolean) => {
-    const options = new QuizOptions(import.meta.env.MODE === 'development' ? 'http://localhost:8000' : location.origin);
+    const options = new QuizOptions(import.meta.env.MODE === 'development' ? 'http://localhost:8000' : location.origin + (window.baseDS.base_path || ''));
     const quiz = await Quiz.new(options);
     setActiveQuiz(quiz);
     if (initiated) setQuizState(quiz.state());

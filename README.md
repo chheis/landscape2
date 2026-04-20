@@ -72,6 +72,60 @@ The landscape2 CLI tool is also distributed in a [container image](https://githu
 
 ### Building from source
 
+Use these steps to build and install **landscape2** from this repository.
+
+1. Install required tooling.
+
+```text
+# Rust toolchain (includes cargo)
+curl https://sh.rustup.rs -sSf | sh
+
+# wasm-pack (required to build wasm modules)
+cargo install wasm-pack
+
+# Yarn classic (required to build embedded UI assets)
+npm install -g yarn
+```
+
+> [!TIP]
+> If the `landscape2` command is not found after installation, make sure `~/.cargo/bin` is in your `PATH`.
+
+2. Clone the repository and move into it.
+
+```text
+git clone https://github.com/cncf/landscape2.git
+cd landscape2
+```
+
+3. Build the project (release mode).
+
+```text
+cargo build --release
+```
+
+4. Install the CLI from your local checkout.
+
+```text
+cargo install --path crates/cli --force
+```
+
+5. Verify the tool is available.
+
+```text
+landscape2 --help
+```
+
+6. Quick smoke test: create, build, and serve a sample landscape.
+
+```text
+landscape2 new --output-dir my-landscape
+cd my-landscape
+landscape2 build --data-file data.yml --settings-file settings.yml --guide-file guide.yml --logos-path logos --output-dir build
+landscape2 serve --landscape-dir build
+```
+
+The original short version of this section is included below for convenience:
+
 You can build **landscape2** from the source by using [Cargo](https://rustup.rs), the Rust package manager. [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/) is required to build the wasm modules. [yarn](https://classic.yarnpkg.com/lang/en/docs/install/) is also required during the installation process to build the web application, which will be embedded into the `landscape2` binary as part of the build process.
 
 ```text
@@ -88,12 +142,12 @@ https://github.com/cncf/landscape2#usage
 Usage: landscape2 <COMMAND>
 
 Commands:
-  build     Build landscape website
-  deploy    Deploy landscape website (experimental)
-  new       Create a new landscape from the built-in template
-  serve     Serve landscape website
-  validate  Validate landscape data sources files
-  help      Print this message or the help of the given subcommand(s)
+    build     Build landscape website
+    deploy    Deploy landscape website (experimental)
+    new       Create a new landscape from the built-in template
+    serve     Serve landscape website
+    validate  Validate landscape data sources files
+    help      Print this message or the help of the given subcommand(s)
 ```
 
 ## Usage
