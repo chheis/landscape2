@@ -104,7 +104,7 @@ cargo build --release
 ```
 
 4. Install the CLI from your local checkout.
-
+Hint: Be aware that it is rebuilding always.
 ```text
 cargo install --path crates/cli --force
 ```
