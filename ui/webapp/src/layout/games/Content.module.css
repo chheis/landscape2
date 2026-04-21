@@ -91,6 +91,7 @@
 
 .itemName {
   padding-top: 3px;
+  overflow-wrap: break-word;
 }
 
 .option.correct .item {
