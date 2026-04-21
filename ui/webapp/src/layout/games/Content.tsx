@@ -176,7 +176,7 @@ const Content = () => {
                           class={`d-flex align-items-center justify-content-start justify-content-lg-center fw-semibold px-3 px-lg-2 py-2 py-md-3 py-lg-2 ${styles.item}`}
                           classList={{ 'text-white': isCorrect() || isWrong() }}
                         >
-                          <div class={`w-100 text-lg-center text-truncate ${styles.itemName}`}>{option.item}</div>
+                          <div class={`w-100 text-lg-center ${styles.itemName}`}>{option.item}</div>
                         </div>
                       </div>
                     );
